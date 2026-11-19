@@ -1,0 +1,51 @@
+=============================================
+FEATURE: IAM / AUTHENTICATION
+Module: Modules/IAM
+=============================================
+
+// users — migration: 2026_11_19_000001_create_users_table.php
+// verification_codes — 2026_11_19_000002
+// roles, permissions, pivots — 2026_11_19_000003
+// password_reset_tokens + sessions — 2026_11_19_000001
+
+=============================================
+FEATURE: PLANS
+Module: Modules/Plans
+=============================================
+
+// plans — 2026_11_19_000010
+// subscriptions — 2026_11_19_000050 (after orders)
+
+=============================================
+FEATURE: TEMPLATES
+Module: Modules/Templates
+=============================================
+
+// templates — 2026_11_19_000020
+
+=============================================
+FEATURE: PORTFOLIOS
+Module: Modules/Portfolios
+=============================================
+
+// portfolios — 2026_11_19_000030
+// portfolio_domains — 2026_11_19_000031
+// media — 2026_11_19_000032
+// portfolio_messages — 2026_11_19_000033
+
+=============================================
+FEATURE: BILLING
+Module: Modules/Billing
+=============================================
+
+// orders — 2026_11_19_000040
+// order_items — 2026_11_19_000041
+// payments — 2026_11_19_000042
+// template_purchases — 2026_11_19_000043
+
+=============================================
+FEATURE: CORE
+Module: Modules/Core
+=============================================
+
+Shared base layer (Controllers, Services, Repositories, DTO, Rules). No tables.

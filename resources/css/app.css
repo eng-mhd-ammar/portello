@@ -1,0 +1,162 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../../Modules/**/Resources/js/**/*.jsx';
+
+/*
+ * Portello design tokens — edit :root and .dark below to retheme the app.
+ * Tailwind utilities map via @theme (e.g. bg-brand, text-content, border-border).
+ */
+:root {
+    --token-brand: #ea580c;
+    --token-brand-hover: #c2410c;
+    --token-brand-soft: #fff7ed;
+    --token-brand-muted: #ffedd5;
+    --token-brand-fg: #ffffff;
+    --token-brand-glow-strong: rgb(234 88 12 / 0.4);
+    --token-brand-glow-soft: rgb(251 146 60 / 0.22);
+
+    --token-surface: #fafaf9;
+    --token-surface-elevated: #ffffff;
+    --token-surface-muted: #f5f5f4;
+    --token-surface-inverse: #1c1917;
+
+    --token-border: #e7e5e4;
+    --token-border-strong: #d6d3d1;
+
+    --token-text: #1c1917;
+    --token-text-muted: #57534e;
+    --token-text-subtle: #78716c;
+    --token-text-inverse: #fafaf9;
+    --token-text-on-inverse: #d6d3d1;
+
+    --token-danger: #dc2626;
+    --token-success-surface: #ecfdf5;
+    --token-success-border: #a7f3d0;
+    --token-success-content: #047857;
+
+    --token-progress-from: #c2410c;
+    --token-progress-via: #ea580c;
+    --token-progress-to: #fb923c;
+    --token-progress-glow: rgb(234 88 12 / 0.45);
+}
+
+.dark {
+    --token-brand: #f97316;
+    --token-brand-hover: #fb923c;
+    --token-brand-soft: rgb(249 115 22 / 0.14);
+    --token-brand-muted: rgb(249 115 22 / 0.22);
+    --token-brand-fg: #1c1917;
+    --token-brand-glow-strong: rgb(249 115 22 / 0.35);
+    --token-brand-glow-soft: rgb(251 146 60 / 0.15);
+
+    --token-surface: #0c0a09;
+    --token-surface-elevated: #1c1917;
+    --token-surface-muted: #292524;
+    --token-surface-inverse: #141210;
+
+    --token-border: #44403c;
+    --token-border-strong: #57534e;
+
+    --token-text: #fafaf9;
+    --token-text-muted: #a8a29e;
+    --token-text-subtle: #78716c;
+    --token-text-inverse: #1c1917;
+    --token-text-on-inverse: #44403c;
+
+    --token-danger: #f87171;
+    --token-success-surface: rgb(6 78 59 / 0.35);
+    --token-success-border: rgb(52 211 153 / 0.35);
+    --token-success-content: #6ee7b7;
+
+    --token-progress-from: #ea580c;
+    --token-progress-via: #f97316;
+    --token-progress-to: #fdba74;
+    --token-progress-glow: rgb(249 115 22 / 0.5);
+}
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-brand: var(--token-brand);
+    --color-brand-hover: var(--token-brand-hover);
+    --color-brand-soft: var(--token-brand-soft);
+    --color-brand-muted: var(--token-brand-muted);
+    --color-brand-fg: var(--token-brand-fg);
+
+    --color-surface: var(--token-surface);
+    --color-surface-elevated: var(--token-surface-elevated);
+    --color-surface-muted: var(--token-surface-muted);
+    --color-surface-inverse: var(--token-surface-inverse);
+
+    --color-border: var(--token-border);
+    --color-border-strong: var(--token-border-strong);
+
+    --color-content: var(--token-text);
+    --color-content-muted: var(--token-text-muted);
+    --color-content-subtle: var(--token-text-subtle);
+    --color-content-inverse: var(--token-text-inverse);
+    --color-content-on-inverse: var(--token-text-on-inverse);
+
+    --color-danger: var(--token-danger);
+    --color-success-surface: var(--token-success-surface);
+    --color-success-border: var(--token-success-border);
+    --color-success-content: var(--token-success-content);
+}
+
+@utility auth-marketing-glow {
+    background-image: radial-gradient(circle at 20% 20%, var(--token-brand-glow-strong), transparent 45%),
+        radial-gradient(circle at 80% 0%, var(--token-brand-glow-soft), transparent 40%);
+}
+
+@utility landing-grid {
+    background-image: linear-gradient(to right, rgb(120 113 108 / 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgb(120 113 108 / 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+}
+
+.dark .landing-grid {
+    background-image: linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+}
+
+@utility landing-hero-glow {
+    background: radial-gradient(ellipse 80% 60% at 50% -20%, var(--token-brand-glow-soft), transparent);
+}
+
+body {
+    background-color: var(--token-surface);
+    color: var(--token-text);
+}
+
+/* Inertia navigation progress — top edge bar */
+#nprogress {
+    pointer-events: none;
+    z-index: 99999;
+}
+
+#nprogress .bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        var(--token-progress-from),
+        var(--token-progress-via),
+        var(--token-progress-to)
+    );
+    box-shadow: 0 0 12px var(--token-progress-glow);
+}
+
+#nprogress .peg {
+    box-shadow:
+        0 0 12px var(--token-brand),
+        0 0 6px var(--token-brand);
+}
